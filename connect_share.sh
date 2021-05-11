@@ -1,16 +1,16 @@
 #!/bin/bash
 pacman -S smbfs
 
-echo Hi, where to connect (share, ex. //[ip]/[path]/) ?
+echo 'Hi, where to connect (share, ex. //[ip]/[path]/) ?'
 read url
 
-echo username?
+echo 'username?'
 read username
 
-echo password?
+echo 'password?'
 read password
 
-echo where to mount (ex. /mnt/share)?
-read /mnt/share
+echo 'where to mount (ex. /mnt/share)?'
+read share
 
-mount.cifs $url /mnt/share -o user=$username,pass=$password,iocharset=utf8,file_mode=0777,dir_mode=0777
+mount.cifs $url $share -o user=$username,pass=$password,iocharset=utf8,file_mode=0777,dir_mode=0777
